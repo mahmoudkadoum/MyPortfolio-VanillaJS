@@ -1,0 +1,703 @@
+:root {
+  --main-color: #03A9F4;
+  --scroll-width: .5vw;
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Start Custom  Page Scroll Progress Bar */
+html::-webkit-scrollbar{
+  width: .5vw;
+}
+ html::-webkit-scrollbar-thumb{
+background-color: #797979;
+}
+ html::-webkit-scrollbar-thumb:hover{
+background-color: var(--main-color);
+}
+html::-webkit-scrollbar-track{
+background-color: #a8a8a8;
+}
+
+#scrollProgressBar {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 5px;
+  background-color: var(--main-color);
+}
+#scrollProgressBar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(10px);
+  background: var(--main-color);
+}
+#scrollProgressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(30px);
+  background: var(--main-color);
+}
+#scrollPath {
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  opacity: .1;
+}
+/* End Custom  Page Scroll Progress Bar */
+
+.container {
+    /* width: 1170px; */
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+  } 
+
+  /* Start settings pox */
+.settings-box {
+    position: fixed;
+    left: -200px;
+    top: 0;
+    background-color: rgb(12, 12, 12);
+    width: 200px;
+    z-index: 1000;
+    min-height: 100vh;
+    transition: .5s;
+}
+.settings-box.open{
+    left: 0;
+}
+.settings-box .toggel-settings{
+position: absolute;
+right: -30px;
+top: 100px;
+background-color: #FFF;
+text-align: center;
+cursor: pointer;
+z-index: 500;
+box-shadow:inset 0px 0px 5px var(--main-color),
+0px 0px 1px var(--main-color),
+0px 0px 2px var(--main-color),
+0px 0px 4px var(--main-color),
+0px 0px 8px var(--main-color);
+}
+.settings-box .toggel-settings .fa-gear{
+    width: 30px;
+    padding: 8px 0;
+}
+.settings-box .toggel-settings .fa-gear.fa-spin{
+    color: #FFF;
+}
+.settings-box .option-box{
+    padding: 20px;
+    text-align: center;
+    background-color: #000000;
+    margin: 5px;
+}
+
+.settings-box .option-box h4{
+    margin: 0;
+    color: #666;
+    font-size: 13px;
+}
+.settings-box .option-box .color-list{
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    margin: 20px 0 0;
+}
+.settings-box .option-box .color-list li{
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+.settings-box .option-box .color-list li.active{
+    box-shadow:inset 0px 0px 30px #FFF,
+                0px 0px 5px var(--main-color),
+                0px 0px 10px var(--main-color),
+                0px 0px 15px var(--main-color),
+                0px 0px 20px var(--main-color),
+                0px 0px 25px var(--main-color) ;
+}
+.settings-box .option-box .color-list li:nth-child(1) {
+    background-color: #03A9F4;
+}
+.settings-box .option-box .color-list li:nth-child(2) {
+    background-color: #E91E63;
+}
+.settings-box .option-box .color-list li:nth-child(3) {
+    background-color: #ff00ff;
+}
+.settings-box .option-box .color-list li:nth-child(4) {
+    background-color: #FF9800;
+}
+.settings-box .option-box .color-list li:nth-child(5) {
+    background-color: #33b638;
+}
+/* Start random BG settings pox */
+.settings-box .option-box:nth-child(2) span {
+    width: 40px;
+    display: inline-block;
+    height: 20px;
+    color: #FFF;
+    background-color: var(--main-color);
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 3px 10px;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.settings-box .option-box:nth-child(2) span.active {
+    color: #000000;
+    box-shadow:inset 0px 0px 50px #FFF,
+                0px 0px 2px var(--main-color),
+                0px 0px 4px var(--main-color),
+                0px 0px 8px var(--main-color),
+                0px 0px 10px var(--main-color),
+                0px 0px 15px var(--main-color) ;
+}
+/* End random BG settings pox */
+  /* End settings pox */
+
+/* Start Nav Bullets */
+.navBullets {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  z-index: 1000;
+  margin-right: 10px;
+}
+.navBullets .bullet {
+  width: 20px;
+  height: 20px;
+  background-color: var(--main-color);
+  border: 3px solid var(--main-color);
+  border-radius: 50%;
+  margin: 20px auto;
+  transition: .3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+}
+.navBullets .bullet::before {
+content: var(--section-name);
+width: 100px;
+height: 30px;
+position: absolute;
+background-color: transparent;
+left: -120px;
+top: -10px;
+color: var(--main-color);
+line-height: 30px;
+text-align: center;
+font-weight: bold;
+box-shadow:inset 0px 0px 5px var(--main-color),
+0px 0px 2px var(--main-color),
+0px 0px 4px var(--main-color),
+0px 0px 8px var(--main-color),
+0px 0px 10px var(--main-color),
+0px 0px 15px var(--main-color) ;
+display: none;
+transition: all .3s;
+}
+.navBullets .bullet::after {
+content: '';
+border-width: 10px;
+border-style: solid;
+border-color: transparent transparent transparent var(--main-color);
+position: absolute;
+background-color: transparent;
+left: -20px;
+top: -5px;
+z-index: 2;
+display: none;
+}
+.navBullets .bullet:hover {
+  background-color: var(--main-color);
+  background-color: #F6F6F6;
+  box-shadow:inset 0px 0px 30px #FFF,
+  0px 0px 5px var(--main-color),
+  0px 0px 10px var(--main-color),
+  0px 0px 15px var(--main-color),
+  0px 0px 20px var(--main-color),
+  0px 0px 25px var(--main-color) ;
+}
+.navBullets .bullet:hover::before,
+.navBullets .bullet:hover::after {
+  display: block;
+}
+/* End Nav Bullets */
+
+/* Start landing page */
+.landing-page {
+    min-height: 100vh;
+    background-image: url(../images/01.jpg);
+    background-size: cover;
+    position : relative;
+}
+.landing-page .overlay {
+background-color: rgba(0, 0, 0, 0.5);
+position: absolute;
+height: 100%;
+width: 100%;
+left: 0;
+top: 0;
+z-index: 1;
+}
+.header-area {
+position: relative;
+color: #FFF;
+z-index: 2;
+display: flex;
+padding: 10px;
+line-height: 30px;
+}
+.header-area .logo {
+flex: 1;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+padding: 15px;
+/* padding-left: 80px; */
+font-weight: normal;
+text-shadow: 0px 0px 4px var(--main-color), 0px 0px 8px var(--main-color);
+color: white;
+font-size: 30px;
+transition:all .5s, text-shadow 0s;
+}
+.header-area .links {
+    list-style: none;
+    padding-left: 0;
+    padding-right: 20px;
+    width: 100%;
+    text-align: right;
+    font-size: 20px;
+    flex: 1;
+}
+.header-area .links a{
+color: #FFF;
+text-decoration: none;
+transition:all .5s, color 0s;
+}
+.header-area .links a:hover, 
+.header-area .links a.active {
+  text-shadow: 0px 0px 4px var(--main-color), 0px 0px 8px var(--main-color);
+  color: white;
+}
+.header-area .links li {
+    display: inline-block;
+    margin-left: 10px;
+}
+.introduction-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #FFF;
+    text-align: center;
+    transition:all .5s, color 0s;
+}
+.introduction-text h1 {
+    font-size: 34px;
+    margin: 0 0 12px;
+    transition: inherit;
+}
+.introduction-text h1 span{
+    color: var(--main-color);
+    transition: inherit;
+}
+.introduction-text p {
+    line-height: 1.6;
+    font-size: 20px;
+    margin: 0 auto;
+    width: 80vw;
+    text-align: center;
+}
+/* End landing page */
+
+/* Start About Us page */
+.aboutPage{
+  display: flex;
+}
+.about-us {
+padding-top: 50px;
+padding-bottom: 50px;
+/* display: flex; */
+flex: 1;
+position: relative;
+}
+.about-us .BG {
+width: 100%;
+height: 100%;
+z-index: -1;
+background-color: #efced9;
+position: absolute;
+top: 0;
+left: 0; 
+filter: hue-rotate(200deg);
+}
+.about-us .info-box {
+position: absolute;
+top: 50%;
+left: 7.5vw;
+transform: translateY(-50%);
+}
+.about-us .info-box h2{
+font-weight: bold;
+font-size: 30px;
+color: white;
+margin: 0px 0px 40px;
+text-shadow:  0px 0px 4px var(--main-color),
+              0px 0px 8px var(--main-color),
+              0px 0px 20px var(--main-color),
+              0px 0px 40px var(--main-color);
+}
+.about-us .info-box p{
+line-height: 1.5;
+color: var(--main-color);
+margin: 0;
+font-size: 2.2ch;
+text-align: justify;
+}
+
+.aboutPage .image-box {
+    flex: 1;
+    text-align: center;
+}
+/* Start 3d Animation Banner */
+.bannerBkg {width:100%; background:#dddddd;filter: hue-rotate(210deg);}
+.banner {width:100%; margin:0px auto; max-width:1700px; z-index:99; position:relative; text-align:center;}
+.banner img {width:100%;height:auto;}
+.bannerBottom {position:absolute; top:0px; left:0px; z-index:101;}
+.bannerPhoto {position:absolute; width:22.24%; top:34.86%; left:23.7%; z-index:102;}
+.bannerText {position:absolute; width:16.4%; top:50.3%; left:47.12%; z-index:103;}
+.bannerButton1 {position:absolute; width:2.16%; top:22.17%; left:63.8%; z-index:104;}
+.bannerButton2 {position:absolute; width:2.32%; top:22.17%; left:65.44%; z-index:105;}
+.bannerButton3 {position:absolute; width:2.88%; top:22.1%; left:67.24%; z-index:106;}
+.bannerTree1 {position:absolute; width:9.02%; top:54.34%; left:14.66%; z-index:107;}
+.bannerTree2 {position:absolute; width:10.63%; top:50.3%; left:71.26%; z-index:109;}
+.bannerTree3 {position:absolute; width:11.48%; top:40.1%; left:77.78%; z-index:108;}
+.bannerClock {position:absolute; width:9.6%; top:13.65%; left:16.76%; z-index:110;}
+.bannerClock2 {position:absolute; width:9.6%; top:13.65%; left:16.76%; z-index:111;}
+/* End 3d Animation Banner */
+/* End About Us page */
+
+/* Start Skills */
+.skills {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: radial-gradient(circle at 50%, #333, #333 67%, var(--main-color) 332%, #333 46%);
+    transition: 2s;
+    position: relative;
+    box-shadow:inset 5px 15px 70px black;
+  }
+
+  .skills h2 {
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    margin: 0px 0px 40px;
+    text-align: center;
+    text-shadow: 0px 0px 4px var(--main-color), 0px 0px 8px var(--main-color);
+    z-index: 111;
+  }
+  .skills .skill-box {
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    padding: 15px;
+    margin-bottom: 15px;
+    opacity: .95;
+    border-radius: 5px;
+  }
+  .skills .skill-box .skill-name {
+    font-weight: bold;
+    width: 140px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+  }
+.skills .skill-box .skill-progress{
+    height: 30px;
+    width: 100%;
+    background-color: transparent;
+    border-radius: 8px;
+    position: relative;
+}
+  .skills .skill-box .skill-progress div{
+    position: absolute;
+    border-radius: inherit;
+    background-color: var(--main-color);
+    width: inherit;
+    height: inherit;
+    left: 0;
+    top: 0;
+    opacity: .2;
+}
+.skills .skill-box:hover {
+    opacity: 1;
+}
+  .skills .skill-box .skill-progress span {
+    text-align: center;
+    font-weight: bolder;
+    line-height: 30px;
+    color: #FFF;
+    position: absolute;
+    border-radius: inherit;
+    background-color: var(--main-color);
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+        box-shadow:inset 0px 0px 10px #ffffff54,
+                0px 0px 2px var(--main-color),
+                0px 0px 4px var(--main-color),
+                0px 0px 8px var(--main-color),
+                0px 0px 10px var(--main-color),
+                0px 0px 15px var(--main-color) ;
+        transition:all 3s, background-color 0s, box-shadow 0s; 
+  } 
+  .skills .skill-box:hover .skill-progress span{
+    transition:all 1.5s;
+    background-color: #FFF;
+    color: var(--main-color);
+}
+/* End Skills */
+
+/* Start Gallery page */
+.gallery {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+}
+.gallery .BG {
+  width: 100%;
+  min-height: 100%;
+  background-color: #efced9;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+filter: hue-rotate(200deg);
+
+}
+.gallery h2 { 
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 50px;
+  text-align: center;
+}
+.gallery .imgBox {
+  text-align: center;
+}
+.gallery .imgBox img {
+  width: 200px;
+  padding: 3px;
+  background-color: #F6F6F6;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin: 5px;
+  cursor: pointer;
+}
+.pageOverlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, .7);
+}
+.popup {
+  position: fixed;
+  background-color: rgb(37, 37, 37);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 1001;
+  padding: 20px;
+  box-shadow:inset 0px 0px 5px var(--main-color),
+  0px 0px 5px var(--main-color),
+  0px 0px 10px var(--main-color),
+  0px 0px 15px var(--main-color),
+  0px 0px 20px var(--main-color),
+  0px 0px 30px var(--main-color) ;
+transition:all 3s, background-color 0s, box-shadow 0s; 
+}
+.popedupImg {
+  max-width: 100%;
+  border-radius: 10px;
+
+}
+.popupTitele {
+  text-align: center;
+  color: var(--main-color);
+  font-weight: bold;
+}
+.popupCloseBtn {
+  color: rgb(185, 185, 185);
+  /* background-color: var(--main-color); */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: fixed;
+  top: -15px;
+  right: -15px;
+  z-index: 1002;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgb(240, 240, 240);
+  box-shadow:inset 0px 0px 5px var(--main-color),
+  0px 0px 5px var(--main-color),
+  0px 0px 10px var(--main-color),
+  0px 0px 15px var(--main-color),
+  0px 0px 20px var(--main-color),
+  0px 0px 30px var(--main-color) ;
+  transition:all 3s, background-color 0s, box-shadow 0s, color 1.5s, transform 1s; 
+}
+.popupCloseBtn:hover{
+  color: var(--main-color);
+  text-shadow: 0px 0px 4px var(--main-color), 0px 0px 8px var(--main-color);
+  transform: scale(1.1);
+}
+.popupCloseBtn .fa-times {
+  line-height: 50px;
+  font-size: 35px;
+}
+/* End Gallery page */
+
+/* Start Contact me */
+.contact {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  min-height: 100vh;
+  background-size: cover;
+  background-color: #333;
+  box-shadow: inset 0px 13px 62px black;
+  position: relative;
+  transition: 2s;
+  overflow: hidden;
+}
+.contact .container{
+z-index: 100;
+}
+.contact h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  margin: 0px 0px 40px;
+  text-align: center;
+  text-shadow: 0px 0px 4px var(--main-color), 0px 0px 8px var(--main-color);
+  z-index: 111;
+}
+.contact img {
+position: absolute;
+z-index: 0;
+top: 50%;
+transform: translateY(-50%);
+right: 0;
+width: 100%;
+}
+
+.contact form{
+  padding: 30px 20px;
+overflow: hidden;
+position: relative;
+max-width: 1000px;
+margin: auto;
+margin-top: 130px;
+}
+.contact form .left{
+  float: left;
+  width: 49%;
+}
+.contact form .right{
+  float: right;
+  width: 49%;
+}
+
+.contact form input,
+.contact form textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-style: none;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  color: var(--main-color);
+  outline: none;
+  font-weight: bold;
+  background-color: white;
+  box-shadow: inset 0px 0px 5px white,
+  0px 0px 3px var(--main-color),
+  0px 0px 5px var(--main-color);
+}
+
+.contact form input{
+  height: 40px;
+}
+.contact form textarea{
+  height: 180px;
+  resize: none;
+}
+.contact form input[type="submit"]{
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--main-color);
+  background-color: white;
+  box-shadow: 0px 0px 1px var(--main-color),
+  0px 0px 5px var(--main-color),
+  0px 0px 8px var(--main-color),
+  0px 0px 12px var(--main-color),
+  0px 0px 14px var(--main-color),
+  0px 0px 24px var(--main-color);
+}
+
+.contact form input::-webkit-input-placeholder,
+.contact form textarea::-webkit-input-placeholder {
+  color: var(--main-color);
+  font-weight: lighter;
+  opacity: .6;
+  transition: opacity .5s ease-in-out;
+}
+
+.contact form input:focus::-webkit-input-placeholder,
+.contact form textarea:focus::-webkit-input-placeholder {
+  opacity: .2;
+}
+.contact form input:focus,
+.contact form textarea:focus {
+  background-color: white;
+  box-shadow: 0px 0px 1px var(--main-color),
+  0px 0px 5px var(--main-color),
+  0px 0px 8px var(--main-color),
+  0px 0px 12px var(--main-color),
+  0px 0px 14px var(--main-color);
+}
+/* End Contact me */
+

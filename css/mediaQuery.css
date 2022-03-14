@@ -1,0 +1,94 @@
+/* Extra small devices (phones, 600px and down) */
+@media (max-width: 600px) {
+    /* landingPage */
+    .header-area {justify-items: center;}
+    .header-area .logo {padding: 15px 0;margin: auto;font-size: 50px;flex: 1;position: absolute;
+    left: 50%;top: 15vh;text-align: center;transform: translate(-50%, 0);}
+    .header-area .links {display: none;}
+    .introduction-text {top: 55vh;}
+    .introduction-text h1 {font-size: 30px;margin: 0 0 12px;}
+    .introduction-text p {line-height: 1.2;font-size: 15px;}
+    /* End landingPage */
+    /* About Page */
+    .aboutPage{flex-direction: column;}
+    .about-us .info-box {position: relative;top: 10%;left: 50%;transform: translatex(-50%);text-align: center;}
+    .about-us .info-box p{line-height: 1.2;max-width: 80vw;margin: 0 auto;font-size: 2ch;}
+    /* End About Page */
+    /* Start Skills */
+    .skills {padding-top: 30px;padding-bottom: 10px;}
+    .skills h2 {margin: 0px 0px 30px;}
+    .skills .skill-box {width: 75vw;padding: 15px;margin: 0 auto 10px auto;}
+    .skills .skill-box .skill-name {width: 100%;line-height: 10px;}
+    .skills .skill-box .skill-progress{height: 20px;}
+    .skills .skill-box .skill-progress span {line-height: 20px;} 
+    /* End Skills */
+    /* contactPage */
+    .contact{padding-bottom: 0;padding-top: 10vh;min-height: 100vh;}
+    .contact h2 {margin: 3vh;}
+    .contact img {display: none;}
+    .contact form .left{width: 100%;}
+    .contact form .right{width: 100%;}
+    .contact form{margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;width: 80%;}
+    .contact form input[type="submit"]{margin: 50px auto;width: 60vw;margin-left: auto;}
+    /* End contactPage */
+    }
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 601px) and (max-width: 767px) {
+    .container {max-width: 540px;}
+    /* landingPage */
+    .header-area .logo {padding: 15px 0;font-size: 25px;flex: 1.5;}
+    .header-area .links {padding-right: 0px;font-size: 15px;flex: 2;}
+    .header-area .links li {margin-left: 5px;}
+    /* End landingPage */
+    /* About Page */
+    .aboutPage{flex-direction: column;}
+    .about-us {display: block;text-align: center;}
+    .about-us .info-box {padding: 0;position: relative;top: 10%;left: 50%;transform: translatex(-50%);}
+    .about-us .info-box p{line-height: 1.2;max-width: 80vw;margin: 0 auto;font-size: 2ch;}
+    /* End About Page */
+    /* Start Skills */
+    .skills {padding-top: 30px;padding-bottom: 10px;}
+    .skills h2 {margin: 0px 0px 30px;}
+    .skills .skill-box {display: block;width: 75vw;padding: 15px;margin: 0 auto 10px auto;}
+    .skills .skill-box .skill-name {width: 100%;margin-bottom: 15px;line-height: 10px;}
+    .skills .skill-box .skill-progress{height: 20px;}
+    .skills .skill-box .skill-progress span {line-height: 20px;} 
+    /* End Skills */
+    /* contactPage */
+    .contact{padding-bottom: 0;padding-top: 10vh;min-height: 100vh;}
+    .contact h2 {margin: 3vh;}
+    .contact img {display: none;}
+    .contact form{margin:auto;display:flex;flex-direction:column;justify-content:center;align-items: center;width: 80%;}
+    .contact form .left,
+    .contact form .right {float: none;width: 100%;}
+    .contact form input[type="submit"]{margin: 50px auto;width: 60vw;margin-left: auto;}
+    /* End contactPage */
+    }
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container {max-width: 720px;}
+    /* landingPage */
+    .header-area .logo {padding: 15px 0;font-size: 30px;flex: 1.5;}
+    .header-area .links {padding-right: 0px;font-size: 20px;flex: 2;}
+    .header-area .links li {margin-left: 5px;}
+    /* End landingPage */
+    /* aboutPage */
+    .about-us .info-box h2{  margin: 0px 0px 20px;}
+    .about-us {display: block;text-align: start;padding: 20px;padding-top: 30px;}
+    .about-us .info-box {padding: 10px;position: relative;top: 5%;left: 50%;transform: translatex(-50%);}
+    .about-us .info-box p{line-height: 1.2;max-width: 80vw;margin: 0 auto;font-size: 2ch;}
+    /* End aboutPage */
+    /* contactPage */
+    .contact img {top: 50%;transform: translateY(-50%) scale(1.2);}
+    .contact h2 {  margin: 50px 0px 0px;}
+    .contact form{padding: 30px 20px;position: relative;max-width: 90vw;margin-top: 50px;}
+    /* End contactPage */
+    }
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {max-width: 960px;}
+    }
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+    .container {max-width: 83.5vw;}
+    }
